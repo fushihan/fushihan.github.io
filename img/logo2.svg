@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137" height="46" viewBox="0 0 137 46">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 33.333px;
+        filter: url(#filter);
+        font-family: HGBD_CNKI;
+      }
+
+      .cls-2 {
+        font-size: 8.333px;
+        filter: url(#filter-2);
+        font-family: "Microsoft YaHei UI";
+      }
+    </style>
+    <filter id="filter" x="5" y="1" width="126" height="33" filterUnits="userSpaceOnUse">
+      <feImage preserveAspectRatio="none" x="5" y="1" width="126" height="33" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTI2IiBoZWlnaHQ9IjMzIiB2aWV3Qm94PSIwIDAgMTI2IDMzIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjYzIiB5MT0iMzMiIHgyPSI2MyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxMmQ2ZGYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjcwZmZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSIxMjYiIGhlaWdodD0iMzMiLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="41" y="35" width="65" height="7" filterUnits="userSpaceOnUse">
+      <feImage preserveAspectRatio="none" x="41" y="35" width="65" height="7" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjUiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDY1IDciPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMzIuNSIgeTE9IjciIHgyPSIzMi41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzEyZDZkZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNzBmZmYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjY1IiBoZWlnaHQ9IjciLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <image id="图层_0" data-name="图层 0" width="137" height="46" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAuCAYAAAAcPTqfAAAAhklEQVR4nO3SAQ0AIAzAsIN/z8cBM9BKWHZ2dwc+rjgUk5BMQjIJySQkk5BMQjIJySQkk5BMQjIJySQkk5BMQjIJySQkk5BMQjIJySQkk5BMQjIJySQkk5BMQjIJySQkk5BMQjIJySQkk5BMQjIJySQkk5BMQjIJySQkk5BMQjIJyST8zcwDOAEEWJiDayAAAAAASUVORK5CYII="/>
+  <text id="FUSHIHAN" class="cls-1" x="3.522" y="27.174">FUSHIHAN</text>
+  <text id="S_H_S_WEBNOTE" data-name="S H&apos;S WEBNOTE" class="cls-2" x="41.18" y="41.845">S H&apos;S WEBNOTE</text>
+</svg>
