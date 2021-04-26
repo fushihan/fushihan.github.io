@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>nfs原理及安装配置 - 随笔 for SH</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="sh&#039;s webnote"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="sh&#039;s webnote"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="转载：https:&amp;#x2F;&amp;#x2F;www.cnblogs.com&amp;#x2F;whych&amp;#x2F;p&amp;#x2F;9196537.html 一、简介 二、工作原理 三、安装配置 一、简介  NFS（Network File System）即网络文件系统，它允许网络中的计算机之间通过网络共享资源。将NFS主机分享的目录，挂载到本地客户端当中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，在客户端端看起来，就像访问本地文件一"><meta property="og:type" content="blog"><meta property="og:title" content="nfs原理及安装配置"><meta property="og:url" content="http://example.com/2021/04/24/nfs%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"><meta property="og:site_name" content="随笔 for SH"><meta property="og:description" content="转载：https:&amp;#x2F;&amp;#x2F;www.cnblogs.com&amp;#x2F;whych&amp;#x2F;p&amp;#x2F;9196537.html 一、简介 二、工作原理 三、安装配置 一、简介  NFS（Network File System）即网络文件系统，它允许网络中的计算机之间通过网络共享资源。将NFS主机分享的目录，挂载到本地客户端当中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，在客户端端看起来，就像访问本地文件一"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221958977-1162276457.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221959395-624353756.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221959663-426589246.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221959844-803084024.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000220-762626715.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000513-1219450687.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000774-835400305.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000966-209472388.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222001157-957798719.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222001480-825645119.png"><meta property="og:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222001779-1588876937.png"><meta property="article:published_time" content="2021-04-24T09:37:34.942Z"><meta property="article:modified_time" content="2021-04-24T09:37:34.943Z"><meta property="article:author" content="F"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221958977-1162276457.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/04/24/nfs%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"},"headline":"nfs原理及安装配置","image":["https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221958977-1162276457.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221959395-624353756.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221959663-426589246.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221959844-803084024.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000220-762626715.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000513-1219450687.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000774-835400305.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000966-209472388.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222001157-957798719.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222001480-825645119.png","https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222001779-1588876937.png"],"datePublished":"2021-04-24T09:37:34.942Z","dateModified":"2021-04-24T09:37:34.943Z","author":{"@type":"Person","name":"F"},"description":"转载：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;whych&#x2F;p&#x2F;9196537.html 一、简介 二、工作原理 三、安装配置 一、简介  NFS（Network File System）即网络文件系统，它允许网络中的计算机之间通过网络共享资源。将NFS主机分享的目录，挂载到本地客户端当中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，在客户端端看起来，就像访问本地文件一"}</script><link rel="canonical" href="http://example.com/2021/04/24/nfs%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo2.svg" alt="随笔 for SH" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">往期归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/shweb"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-04-24T09:37:34.942Z" title="2021/4/24下午5:37:34">2021-04-24</time>发表</span><span class="level-item"><time dateTime="2021-04-24T09:37:34.943Z" title="2021/4/24下午5:37:34">2021-04-24</time>更新</span><span class="level-item">11 分钟读完 (大约1608个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">nfs原理及安装配置</h1><div class="content"><p>转载：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/whych/p/9196537.html">https://www.cnblogs.com/whych/p/9196537.html</a></p>
+<p>一、简介</p>
+<p>二、工作原理</p>
+<p>三、安装配置</p>
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>  NFS（Network File System）即网络文件系统，它允许网络中的计算机之间通过网络共享资源。将NFS主机分享的目录，挂载到本地客户端当中，本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，在客户端端看起来，就像访问本地文件一样。</p>
+<p>RPC，基于C/S模型。程序可以使用这个协议请求网络中另一台计算机上某程序的服务而不需知道网络细节，甚至可以请求对方的系统调用。</p>
+<p>对于Linux而言，文件系统是在内核空间实现的，即文件系统比如ext3、ext4等是在Kernel启动时，以内核模块的身份加载运行的。</p>
+<h2 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h2><p>NFS本身的服务并没有提供数据传递的协议，而是通过使用RPC（远程过程调用 Remote Procedure Call）来实现。当NFS启动后，会随机的使用一些端口，NFS就会向RPC去注册这些端口。RPC就会记录下这些端口，RPC会开启111端口。通过client端和sever端端口的连接来进行数据的传输。在启动nfs之前，首先要确保rpc服务启动。</p>
+<p>具体过程如下：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221958977-1162276457.png" alt="img"></p>
+<ol>
+<li>本地用户要访问nfs服务器中文件，先向内核发起请求，内核处理调用nfs模块及rpc client</li>
+<li>rpc client向rpc server发起连接</li>
+<li>在连接之前，NFS服务除了启动nfsd本身监听的端口2049/tcp和2049/udp，还会启动其它进程（如mountd，statd，rquotad等）以完成文件共享，这些进程的端口是不固定的；是每次NFS服务启动时向RPC服务注册的，RPC服务会随机分配未使用的端口</li>
+<li>完成连接，接受访问请求</li>
+<li>nfs应用程序向内核发起请求</li>
+<li>内核调用文件系统</li>
+</ol>
+<p>​    然后client端通过获取的NFS端口来建立和server端的NFS连接并进行数据的传输。</p>
+<p>以下为启动<strong>各服务的作用</strong></p>
+<p><strong>rpc：</strong>远程过程调用协议，是实现本地调用远程主机实现系统调用的协议。</p>
+<p><strong>portmapper：</strong>负责分配rpc server的端口，并在client端请求时，负责响应目的rpc server端口返回给client端，工作在tcp与udp的111端口上。</p>
+<p><strong>mountd：</strong>是nfs服务的认证服务的守护进程，client在收到返回的真正端口时，就会去连接mountd，认证取得令牌。</p>
+<p><strong>nfsd：</strong>nfs的守护进程，负责接收到用户的调用请求后与内核发出请求并得到调用结果响应给用户，工作在tcp和udp的2049端口。</p>
+<p><strong>idmapd：</strong>是NFS的一个程序，用来负责远程client端创建文件后的权限问题。</p>
+<p><strong>quotad：</strong>用用于实现磁盘配额，当client端挂载nfs后可以限制磁盘空间的大小。</p>
+<h2 id="三、NFS服务配置安装"><a href="#三、NFS服务配置安装" class="headerlink" title="三、NFS服务配置安装"></a>三、NFS服务配置安装</h2><p><img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221959395-624353756.png" alt="img"></p>
+<p><strong>相关配置文件及命令的使用</strong></p>
+<p>/etc/exports</p>
+<p>/path/to/somedir CLIENT_LIST</p>
+<p>  多个客户之间使用空白字符分隔</p>
+<p>每个客户端后面必须跟一个小括号，里面定义了此客户访问特性，如访问权限等</p>
+<p>172.16.0.0/16(ro,async) 192.16.0.0/24(rw,sync) *(ro)</p>
+<p>权限属性：</p>
+<p>  ro:只读</p>
+<p>  rw:读写</p>
+<p>  sync:同步，数据同步写到内存与硬盘中</p>
+<p>  async:异步，数据先暂存内存</p>
+<p>  root_squash: 将root用户映射为来宾账号</p>
+<p>  no_root_squash: 有root的权限，不建议使用</p>
+<p>  all_squash: 全部映射为来宾账号</p>
+<p>  anonuid, anongid: 指定映射的来宾账号的UID和GID</p>
+<p>exportfs命令：</p>
+<p>  -a：跟-r或-u选项同时使用，表示重新挂载所有文件系统或取消导出所有文件系统；</p>
+<p>  -r: 重新导出</p>
+<p>  -u: 取消导出</p>
+<p>  -v: 显示详细信息</p>
+<p>showmount命令：</p>
+<p>showmount -e NFS_SERVER: 查看NFS服务器”导出”的各文件系统</p>
+<p>showmount -a NFS_SERVER: 查看NFS服务器所有被挂载的文件系统及其挂载的客户端对应关系列表</p>
+<p>showmount -d NFS_SERVER: 显示NFS服务器所有导出的文件系统中被客户端挂载了文件系统列表</p>
+<p>rpcinfo</p>
+<p>-p hostname(orIP)</p>
+<p>-p ：显示所有的 port 与 program 的信息！</p>
+<p>如果要让mountd和quotad等进程监听在固定端口，编辑配置文件/etc/sysconfig/nfs</p>
+<p>客户端使用mount命令挂载</p>
+<p>mount -t nfs NFS_SERVER:/PATH/TO/SOME_EXPORT /PATH/TO/SOMEWHRERE</p>
+<p><strong>安装配置</strong></p>
+<p>环境准备：</p>
+<p>server端：192.168.1.222 centos 7</p>
+<p>client端：192.168.1.200 centos 6.5</p>
+<p>　　1.在服务端安装nfs，</p>
+<p>　　# yum install nfs-utils rpcbind -y</p>
+<p>  <img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221959663-426589246.png" alt="img"></p>
+<p>　　2.编辑/etc/exports，并启动nfs</p>
+<p>　　<img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618221959844-803084024.png" alt="img"></p>
+<p>　　#systemctl start nfs</p>
+<p>　　3.客户端同样安装nfs-utils和rpcbind并启动，必须先启动rpcbind，否则报错（注意防火墙等）</p>
+<p>　　<img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000220-762626715.png" alt="img"></p>
+<p>　　4.挂载并查看挂载信息</p>
+<p>　　# mount -t nfs 192.168.1.222:/var/nfs /mnt</p>
+<p>　　#showmount –e 192.168.1.222</p>
+<p>　　<img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000513-1219450687.png" alt="img"></p>
+<p>　　在服务器端/var/nfs创建目录或文件，并在客户端/mnt查看即可。</p>
+<p>将所有用户映射为来宾账号实验</p>
+<ol>
+<li><p>在服务器端添加用户hot，并修改配置文件并重新挂载文件系统</p>
+<p>添加用户</p>
+<p>useradd –u 520 hot</p>
+<p>修改/etc/exports</p>
+<p>/var/nfs  192.168.1.0/24(rw,async,all_squash,anonuid=520)</p>
+<p>重新挂载导出</p>
+<p>exportfs –ra</p>
+<p><img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000774-835400305.png" alt="img"></p>
+</li>
+<li><p>在客户端上添加用户code，分别在code用户和root用户下创建文件，查看文件属性</p>
+<p><img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222000966-209472388.png" alt="img"></p>
+<p><img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222001157-957798719.png" alt="img"></p>
+<p>可以看到文件属主都为服务器端设置好的来宾账号hot的uid</p>
+<p>让mountd和quotad等进程监听在固定端口，编辑配置文件/etc/sysconfig/nfs，取消注释</p>
+<p><img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222001480-825645119.png" alt="img"></p>
+<p>重启nfs，查看端口</p>
+<p><img src="https://images2018.cnblogs.com/blog/1387124/201806/1387124-20180618222001779-1588876937.png" alt="img"></p>
+</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>nfs原理及安装配置</p><p><a href="http://example.com/2021/04/24/nfs原理及安装配置/">http://example.com/2021/04/24/nfs原理及安装配置/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>F</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-04-24</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-04-24</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>爱发电</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/" alt="支付宝"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>送我杯咖啡</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/04/26/iTOP4412-study/"><i class="level-item fas fa-chevron-left"></i><span class="level-item"> </span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/04/22/linux-%E4%B8%B2%E5%8F%A3%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/"><span class="level-item"> </span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="sh"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">sh</p><p class="is-size-6 is-block">my webnote</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>FZU</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://gitee.com/shweb" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://gitee.com/shweb"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://bilibili.com" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BiliBili</span></span><span class="level-right"><span class="level-item tag">bilibili.com</span></span></a></li><li><a class="level is-mobile" href="https://baidu.com" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Baidu</span></span><span class="level-right"><span class="level-item tag">baidu.com</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-26T11:08:23.164Z">2021-04-26</time></p><p class="title"><a href="/2021/04/26/%E6%96%87%E4%BB%B6%E9%94%81/">文件锁</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-26T11:08:11.306Z">2021-04-26</time></p><p class="title"><a href="/2021/04/26/iTOP4412-study/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-24T09:37:34.942Z">2021-04-24</time></p><p class="title"><a href="/2021/04/24/nfs%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">nfs原理及安装配置</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-22T01:20:05.872Z">2021-04-22</time></p><p class="title"><a href="/2021/04/22/linux-%E4%B8%B2%E5%8F%A3%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-22T01:19:57.739Z">2021-04-22</time></p><p class="title"><a href="/2021/04/22/%E4%BD%8D%E6%8E%A9%E7%A0%81%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/"> </a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo2.svg" alt="随笔 for SH" height="28"></a><p class="is-size-7"><span>&copy; 2021 F</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/shweb"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
