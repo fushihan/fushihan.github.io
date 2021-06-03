@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>通用USB的wifi驱动的移植 - 随笔 for SH</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="sh&#039;s webnote"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="sh&#039;s webnote"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="控制变量和黑盒思想不需要搞懂每个代码的含义，封装+黑盒。 编译出驱动文件1.找驱动源码网上&amp;#x2F;原厂网站，**找不到就换方案，不要做任何犹豫** 2.版本与编译平台关注一下源码支持内核版本和驱动源码版本以及编译平台 ​    内核版本指的是开发板上运行的linux版本。 ​    驱动源码可能具有多个版本，寻找兼容内核版本的那个源码版本 ​    编译平台是指源码需要在什么平台下编译，Ubantu&amp;#x2F;X"><meta property="og:type" content="blog"><meta property="og:title" content="通用USB的wifi驱动的移植"><meta property="og:url" content="http://example.com/2021/06/03/%E9%80%9A%E7%94%A8USB%E7%9A%84wifi%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%A7%BB%E6%A4%8D/"><meta property="og:site_name" content="随笔 for SH"><meta property="og:description" content="控制变量和黑盒思想不需要搞懂每个代码的含义，封装+黑盒。 编译出驱动文件1.找驱动源码网上&amp;#x2F;原厂网站，**找不到就换方案，不要做任何犹豫** 2.版本与编译平台关注一下源码支持内核版本和驱动源码版本以及编译平台 ​    内核版本指的是开发板上运行的linux版本。 ​    驱动源码可能具有多个版本，寻找兼容内核版本的那个源码版本 ​    编译平台是指源码需要在什么平台下编译，Ubantu&amp;#x2F;X"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:published_time" content="2021-06-03T07:16:49.257Z"><meta property="article:modified_time" content="2021-05-25T14:25:31.347Z"><meta property="article:author" content="F"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2021/06/03/%E9%80%9A%E7%94%A8USB%E7%9A%84wifi%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%A7%BB%E6%A4%8D/"},"headline":"通用USB的wifi驱动的移植","image":["http://example.com/img/og_image.png"],"datePublished":"2021-06-03T07:16:49.257Z","dateModified":"2021-05-25T14:25:31.347Z","author":{"@type":"Person","name":"F"},"description":"控制变量和黑盒思想不需要搞懂每个代码的含义，封装+黑盒。 编译出驱动文件1.找驱动源码网上&#x2F;原厂网站，**找不到就换方案，不要做任何犹豫** 2.版本与编译平台关注一下源码支持内核版本和驱动源码版本以及编译平台 ​    内核版本指的是开发板上运行的linux版本。 ​    驱动源码可能具有多个版本，寻找兼容内核版本的那个源码版本 ​    编译平台是指源码需要在什么平台下编译，Ubantu&#x2F;X"}</script><link rel="canonical" href="http://example.com/2021/06/03/%E9%80%9A%E7%94%A8USB%E7%9A%84wifi%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%A7%BB%E6%A4%8D/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo2.svg" alt="随笔 for SH" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">往期归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/shweb"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-06-03T07:16:49.257Z" title="2021/6/3下午3:16:49">2021-06-03</time>发表</span><span class="level-item"><time dateTime="2021-05-25T14:25:31.347Z" title="2021/5/25下午10:25:31">2021-05-25</time>更新</span><span class="level-item">4 分钟读完 (大约648个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">通用USB的wifi驱动的移植</h1><div class="content"><h1 id="控制变量和黑盒思想"><a href="#控制变量和黑盒思想" class="headerlink" title="控制变量和黑盒思想"></a>控制变量和黑盒思想</h1><p>不需要搞懂每个代码的含义，封装+黑盒。</p>
+<h1 id="编译出驱动文件"><a href="#编译出驱动文件" class="headerlink" title="编译出驱动文件"></a>编译出驱动文件</h1><h2 id="1-找驱动源码"><a href="#1-找驱动源码" class="headerlink" title="1.找驱动源码"></a>1.找驱动源码</h2><p>网上/原厂网站，**<u>找不到就换方案，不要做任何犹豫</u>**</p>
+<h2 id="2-版本与编译平台"><a href="#2-版本与编译平台" class="headerlink" title="2.版本与编译平台"></a>2.版本与编译平台</h2><p>关注一下源码支持内核版本和驱动源码版本以及编译平台</p>
+<p>​    内核版本指的是开发板上运行的linux版本。</p>
+<p>​    驱动源码可能具有多个版本，寻找兼容内核版本的那个源码版本</p>
+<p>​    编译平台是指源码需要在什么平台下编译，Ubantu/X86/Redcap….</p>
+<h2 id="3-Makefile的配置"><a href="#3-Makefile的配置" class="headerlink" title="3.Makefile的配置"></a>3.Makefile的配置</h2><p>配置为对应平台（arm/X86/…）编译器（一般选用和编译内核一样的编译器）和内核源码路径位置，以及对WPA_SUPPLICANT的支持</p>
+<h2 id="4-驱动源码修改"><a href="#4-驱动源码修改" class="headerlink" title="4.驱动源码修改"></a>4.驱动源码修改</h2><p>修改源码中的产品ID（idProduct）和厂商ID（idVendor）</p>
+<h2 id="5-编译驱动源码，得到KO文件"><a href="#5-编译驱动源码，得到KO文件" class="headerlink" title="5.编译驱动源码，得到KO文件"></a>5.编译驱动源码，得到KO文件</h2><h1 id="芯片的配置"><a href="#芯片的配置" class="headerlink" title="芯片的配置"></a>芯片的配置</h1><h2 id="1-外设芯片寄存器的配置"><a href="#1-外设芯片寄存器的配置" class="headerlink" title="1.外设芯片寄存器的配置"></a>1.外设芯片寄存器的配置</h2><h2 id="2-找到默认的配置方法和需要的文件"><a href="#2-找到默认的配置方法和需要的文件" class="headerlink" title="2.找到默认的配置方法和需要的文件"></a>2.找到默认的配置方法和需要的文件</h2><p>​    -有的需要专门的配置程序来下载配置文件，有的提供配置文件生成的方法<br>​    – 正常情况下，有pdf或者readme文本格式的指导文档</p>
+<h1 id="WPA-SUPPLICANT的移植和测试"><a href="#WPA-SUPPLICANT的移植和测试" class="headerlink" title="WPA_SUPPLICANT的移植和测试"></a>WPA_SUPPLICANT的移植和测试</h1><p>​    – wpa_supplicant就是WiFi驱动和用户的中转站外加对协议和加密认证的支持<br>​    – 实现用户通过socket来编程</p>
+<p>​    -wpa_supplicant的移植网上教程一大堆，对应可以使用的版本就成，一个不行多试几个。<br>​    – wpa_supplicant工具涉及到版本问题</p>
+<p>​        安卓源码中有自带的</p>
+<h1 id="配置网络和测试"><a href="#配置网络和测试" class="headerlink" title="配置网络和测试"></a>配置网络和测试</h1><p>​    – ifconfig之类的命令，IP配置等，脚本（有通用脚本）<br>​    – WIFI运行起来之后，可能有另外的参数配置，一般也是通过各种工具来实现配置。官方文档中一般会提供方法。</p>
+<h1 id="移植表"><a href="#移植表" class="headerlink" title="移植表"></a>移植表</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>1.准备工作</strong></th>
+<th align="center">—————-</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">原厂驱动代码</td>
+<td align="center">√ or ×</td>
+</tr>
+<tr>
+<td align="center"><strong>2.版本信息</strong></td>
+<td align="center"><strong>—————</strong></td>
+</tr>
+<tr>
+<td align="center">源码支持内核版本</td>
+<td align="center">x</td>
+</tr>
+<tr>
+<td align="center">驱动源码版本</td>
+<td align="center">x</td>
+</tr>
+<tr>
+<td align="center">编译平台</td>
+<td align="center">x</td>
+</tr>
+<tr>
+<td align="center"><strong>3.Makefile配置</strong></td>
+<td align="center"><strong>—————-</strong></td>
+</tr>
+<tr>
+<td align="center">对应内核源码目录和对应编译器</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">对应平台</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">编译器配置位置</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">内核源码路径设置</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">对WPA_SUPPLICANT的支持</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>4.驱动源码修改两个id</strong></td>
+<td align="center"><strong>—————-</strong></td>
+</tr>
+<tr>
+<td align="center">idVendor</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">idProduct</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>5.芯片的配置</strong></td>
+<td align="center"><strong>—————-</strong></td>
+</tr>
+<tr>
+<td align="center">找到使用文档和配置脚本</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">配置程序和配置脚本</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>6.WPA_SUPPLICANT工具</strong></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+</div><div class="article-licensing box"><div class="licensing-title"><p>通用USB的wifi驱动的移植</p><p><a href="http://example.com/2021/06/03/通用USB的wifi驱动的移植/">http://example.com/2021/06/03/通用USB的wifi驱动的移植/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>F</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-06-03</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-05-25</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>爱发电</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/" alt="支付宝"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>送我杯咖啡</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/06/03/USB%E7%9A%843G%E5%92%8C4G%E7%9A%84%E9%80%9A%E7%94%A8%E7%A7%BB%E6%A4%8D%E6%96%B9%E6%B3%95/"><span class="level-item">USB的3G和4G的通用移植方法</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="sh"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">sh</p><p class="is-size-6 is-block">my webnote</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>FZU</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">19</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://gitee.com/shweb" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://gitee.com/shweb"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://bilibili.com" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">BiliBili</span></span><span class="level-right"><span class="level-item tag">bilibili.com</span></span></a></li><li><a class="level is-mobile" href="https://baidu.com" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Baidu</span></span><span class="level-right"><span class="level-item tag">baidu.com</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-06-03T07:16:49.257Z">2021-06-03</time></p><p class="title"><a href="/2021/06/03/%E9%80%9A%E7%94%A8USB%E7%9A%84wifi%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%A7%BB%E6%A4%8D/">通用USB的wifi驱动的移植</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-06-03T07:16:49.189Z">2021-06-03</time></p><p class="title"><a href="/2021/06/03/USB%E7%9A%843G%E5%92%8C4G%E7%9A%84%E9%80%9A%E7%94%A8%E7%A7%BB%E6%A4%8D%E6%96%B9%E6%B3%95/">USB的3G和4G的通用移植方法</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-06-03T07:16:49.143Z">2021-06-03</time></p><p class="title"><a href="/2021/06/03/%E8%AE%BE%E5%A4%87%E6%A0%91/">设备树</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-05-18T03:31:57.631Z">2021-05-18</time></p><p class="title"><a href="/2021/05/18/%E5%85%B3%E4%BA%8EPF_INET%E5%92%8CAF_INET%E7%9A%84%E5%8C%BA%E5%88%AB/">关于PF_INET和AF_INET的区别</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-05-18T03:31:57.609Z">2021-05-18</time></p><p class="title"><a href="/2021/05/18/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%8F%8Amsgtype%E7%9A%84%E7%94%A8%E6%B3%95/">进程间的消息队列及msgtype的用法</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/05/"><span class="level-start"><span class="level-item">五月 2021</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo2.svg" alt="随笔 for SH" height="28"></a><p class="is-size-7"><span>&copy; 2021 F</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://gitee.com/shweb"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
