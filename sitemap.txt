@@ -2,3 +2,4 @@ http://example.com/2022/09/26/markdown%E8%AF%AD%E6%B3%95/
 http://example.com/tags/index.html
 http://example.com/categories/index.html
 http://example.com/
+http://example.com/tags/mark/
