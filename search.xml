@@ -5,6 +5,25 @@
     <url>/2022/09/26/markdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h1 id="Cmd-Markdown-简明语法手册"><a href="#Cmd-Markdown-简明语法手册" class="headerlink" title="Cmd Markdown 简明语法手册"></a>Cmd Markdown 简明语法手册</h1><p>标签： Cmd-Markdown</p>
 <hr>
+<span id="more"></span>
+
+<!-- more -->
+
+<!-- mo re --       >  
+
+<!-- more -->
+
+
+<!-- more -->
+
+<!-- more -->
+
+<!-- more -->
+
+<!-- more -->
+
+<!-- more -->
+
 <h3 id="1-斜体和粗体"><a href="#1-斜体和粗体" class="headerlink" title="1. 斜体和粗体"></a>1. 斜体和粗体</h3><p>使用 * 和 ** 表示斜体和粗体。</p>
 <p>示例：</p>
 <p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
@@ -184,10 +203,14 @@
 </li>
 </ul>
 <p>[^footnote]: 这是一个 <em>注脚</em> 的 <strong>文本</strong>。</p>
-<p>[^footnote2]: 这是另一个 <em>注脚</em> 的 <strong>文本</strong>。</p>
+<p>[^footnote2]: 这是一个 <em>注脚</em> 的 <strong>文本</strong>。</p>
+<p>[^3]: 这是一个 <em>注脚</em> 的 <strong>文本</strong>。</p>
 ]]></content>
+      <categories>
+        <category>使用手册</category>
+      </categories>
       <tags>
-        <tag>mark</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
 </search>
