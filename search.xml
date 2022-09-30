@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Markdown</title>
-    <url>/2022/09/26/markdown%E8%AF%AD%E6%B3%95/</url>
+    <url>/2021/09/26/markdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h1 id="Cmd-Markdown-简明语法手册"><a href="#Cmd-Markdown-简明语法手册" class="headerlink" title="Cmd Markdown 简明语法手册"></a>Cmd Markdown 简明语法手册</h1><p>标签： Cmd-Markdown</p>
 <hr>
 <span id="more"></span>
@@ -12,7 +12,6 @@
 <!-- mo re --       >  
 
 <!-- more -->
-
 
 <!-- more -->
 
@@ -207,10 +206,11 @@
 <p>[^3]: 这是一个 <em>注脚</em> 的 <strong>文本</strong>。</p>
 ]]></content>
       <categories>
-        <category>使用手册</category>
+        <category>语法手册</category>
       </categories>
       <tags>
         <tag>markdown</tag>
+        <tag>manual</tag>
       </tags>
   </entry>
 </search>
