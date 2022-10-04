@@ -1603,6 +1603,11 @@ header.header {
   margin: 0 5px;
   animation: icon-animate 1.33s ease-in-out infinite;
 }
+.beian img {
+  display: inline-block;
+  margin: 0 3px;
+  vertical-align: middle;
+}
 @-moz-keyframes icon-animate {
   0%, 100% {
     transform: scale(1);
@@ -2628,6 +2633,13 @@ mark.search-keyword {
   line-height: 2.4;
   margin: 0;
 }
+mjx-container[jax='CHTML'][display='true'],
+.has-jax {
+  overflow: auto hidden;
+}
+mjx-container[display='true'] + br {
+  display: none;
+}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
@@ -2890,7 +2902,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #b5a7ff;
+  background: #ff4;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
