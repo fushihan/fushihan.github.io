@@ -6,7 +6,7 @@
   <link href="https://fushihan.github.io/atom.xml" rel="self"/>
   
   <link href="https://fushihan.github.io/"/>
-  <updated>2022-10-02T05:19:11.999Z</updated>
+  <updated>2022-10-14T15:38:38.343Z</updated>
   <id>https://fushihan.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UNIX环境高级编程(第3版)</title>
+    <link href="https://fushihan.github.io/2022/10/14/pdf/"/>
+    <id>https://fushihan.github.io/2022/10/14/pdf/</id>
+    <published>2022-10-14T15:10:39.892Z</published>
+    <updated>2022-10-14T15:38:38.343Z</updated>
+    
+    <content type="html"><![CDATA[<div class="pdf-container" data-target="./UNIX环境高级编程(第3版).pdf" data-height="600px"></div><!-- 在线显示PDF --><!-- 第一种方式，可调整pdf显示的大小，比较灵活 --><embed src="./mysql.pdf" width="100%" height="750" type="application/pdf"><!-- 第二种方式 --><!-- <div class="pdf-container" data-target="./mysql.pdf" data-height="500px"></div><p>--&gt;</p>]]></content>
+    
+    
+    <summary type="html">linux</summary>
+    
+    
+    
+    <category term="linux" scheme="https://fushihan.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="https://fushihan.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown</title>

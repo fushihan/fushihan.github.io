@@ -1,3 +1,4 @@
+https://fushihan.github.io/2022/10/14/pdf/
 https://fushihan.github.io/pdf/pdf.html
 https://fushihan.github.io/about/index.html
 https://fushihan.github.io/categories/index.html
@@ -7,5 +8,7 @@ https://fushihan.github.io/pdfjs-2.16.105-legacy-dist/web/viewer.html
 https://fushihan.github.io/
 https://fushihan.github.io/tags/%E4%BD%9C%E4%B8%9A%E9%83%A8%E8%90%BD/
 https://fushihan.github.io/tags/markdown/
+https://fushihan.github.io/tags/linux/
 https://fushihan.github.io/categories/%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C/
+https://fushihan.github.io/categories/linux/
 https://fushihan.github.io/categories/%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C/markdown/

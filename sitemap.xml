@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://fushihan.github.io/2022/10/14/pdf/</loc>
+    
+    <lastmod>2022-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://fushihan.github.io/pdf/pdf.html</loc>
     
     <lastmod>2022-10-14</lastmod>
@@ -78,10 +87,24 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://fushihan.github.io/tags/linux/</loc>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://fushihan.github.io/categories/%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C/</loc>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fushihan.github.io/categories/linux/</loc>
     <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
