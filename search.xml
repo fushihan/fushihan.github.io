@@ -1,296 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Markdown</title>
-    <url>/2021/09/26/markdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="cmd-markdown-简明语法手册">Cmd Markdown 简明语法手册</h1>
-<p>标签： Cmd-Markdown</p>
-<hr />
-<span id="more"></span>
-<!-- more -->
-<p>&lt;!-- mo re -- &gt;</p>
-<!-- more -->
-<!-- more -->
-<!-- more -->
-<!-- more -->
-<!-- more -->
-<!-- more -->
-<h3 id="斜体和粗体">1. 斜体和粗体</h3>
-<p>使用 * 和 ** 表示斜体和粗体。</p>
-<p>示例：</p>
-<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
-<h3 id="分级标题">2. 分级标题</h3>
-<p>使用 === 表示一级标题，使用 --- 表示二级标题。</p>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这是一个一级标题</span><br><span class="line">============================</span><br><span class="line"></span><br><span class="line">这是一个二级标题</span><br><span class="line">--------------------------------------------------</span><br><span class="line"></span><br><span class="line">### 这是一个三级标题</span><br></pre></td></tr></table></figure>
-<p>你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：# H1, ##
-H2, ### H3，#### H4。</p>
-<h3 id="外链接">3. 外链接</h3>
-<p>使用 [描述](链接地址) 为文字增加外链接。</p>
-<p>示例：</p>
-<p>这是去往 <a href="http://ghosertblog.github.com">本人博客</a>
-的链接。</p>
-<h3 id="无序列表">4. 无序列表</h3>
-<p>使用 *，+，- 表示无序列表。</p>
-<p>示例：</p>
-<ul>
-<li>无序列表项 一</li>
-<li>无序列表项 二</li>
-<li>无序列表项 三</li>
-</ul>
-<h3 id="有序列表">5. 有序列表</h3>
-<p>使用数字和点表示有序列表。</p>
-<p>示例：</p>
-<ol type="1">
-<li>有序列表项 一</li>
-<li>有序列表项 二</li>
-<li>有序列表项 三</li>
-</ol>
-<h3 id="文字引用">6. 文字引用</h3>
-<p>使用 &gt; 表示文字引用。</p>
-<p>示例：</p>
-<blockquote>
-<p>野火烧不尽，春风吹又生。</p>
-</blockquote>
-<h3 id="行内代码块">7. 行内代码块</h3>
-<p>使用 `代码` 表示行内代码块。</p>
-<p>示例：</p>
-<p>让我们聊聊 <code>html</code>。</p>
-<h3 id="代码块">8. 代码块</h3>
-<p>使用 四个缩进空格 表示代码块。</p>
-<p>示例：</p>
-<pre><code>这是一个代码块，此行左侧有四个不可见的空格。</code></pre>
-<h3 id="插入图像">9. 插入图像</h3>
-<p>使用 ![描述](图片链接地址) 插入图像。</p>
-<p>示例：</p>
-<figure>
-<img src="https://www.zybuluo.com/static/img/my_head.jpg"
-alt="我的头像" />
-<figcaption aria-hidden="true">我的头像</figcaption>
-</figure>
-<h1 id="cmd-markdown-高阶语法手册">Cmd Markdown 高阶语法手册</h1>
-<h3 id="内容目录">1. 内容目录</h3>
-<p>在段落中填写 <code>[TOC]</code> 以显示全文内容的目录结构。</p>
-<p>[TOC]</p>
-<h3 id="标签分类">2. 标签分类</h3>
-<p>在编辑区任意行的列首位置输入以下代码给文稿标签：</p>
-<p>标签： 数学 英语 Markdown</p>
-<p>或者</p>
-<p>Tags： 数学 英语 Markdown</p>
-<h3 id="删除线">3. 删除线</h3>
-<p>使用 ~~ 表示删除线。</p>
-<p><del>这是一段错误的文本。</del></p>
-<h3 id="注脚">4. 注脚</h3>
-<p>使用 [^keyword] 表示注脚。</p>
-<p>这是一个注脚<a href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a>的样例。</p>
-<p>这是第二个注脚<a href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a>的样例。</p>
-<h3 id="latex-公式">5. LaTeX 公式</h3>
-<p>$ 表示行内公式：</p>
-<p>质能守恒方程可以用一个很简洁的方程式 <span
-class="math inline">\(E=mc^2\)</span> 来表达。</p>
-<p>$$ 表示整行公式：</p>
-<p><span class="math display">\[\sum_{i=1}^n a_i=0\]</span></p>
-<p><span class="math display">\[f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 +
-\cdots + x_n^2 \]</span></p>
-<p><span class="math display">\[\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj}
-z_k}\]</span></p>
-<p>访问 <a
-href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax</a>
-参考更多使用方法。</p>
-<h3 id="加强的代码块">6. 加强的代码块</h3>
-<p>支持四十一种编程语言的语法高亮的显示，行号显示。</p>
-<p>非代码示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install vim-gnome</span><br></pre></td></tr></table></figure>
-<p>Python 示例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">somefunc</span>(<span class="params">param1=<span class="string">&#x27;&#x27;</span>, param2=<span class="number">0</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;A docstring&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;Greater&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SomeClass</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">&#x27;&#x27;&#x27;interpreter</span></span><br><span class="line"><span class="string"><span class="meta">... </span>prompt&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>JavaScript 示例：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* nth element in the fibonacci series.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> n &gt;= 0</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> the nth element, &gt;= 0.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fib</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> tmp;</span><br><span class="line">  <span class="keyword">while</span> (--n &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    tmp = a;</span><br><span class="line">    a += b;</span><br><span class="line">    b = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="title function_">fib</span>(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
-<h3 id="流程图">7. 流程图</h3>
-<h4 id="示例">示例</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">st=&gt;start: Start:&gt;https://www.zybuluo.com</span><br><span class="line">io=&gt;inputoutput: verification</span><br><span class="line">op=&gt;operation: Your Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">sub=&gt;subroutine: Your Subroutine</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;io-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;sub-&gt;io</span><br></pre></td></tr></table></figure>
-<h4 id="更多语法参考流程图语法参考">更多语法参考：<a
-href="http://adrai.github.io/flowchart.js/">流程图语法参考</a></h4>
-<h3 id="序列图">8. 序列图</h3>
-<h4 id="示例-1">示例 1</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
-<h4 id="示例-2">示例 2</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Title: Here is a title</span><br><span class="line">A-&gt;B: Normal line</span><br><span class="line">B--&gt;C: Dashed line</span><br><span class="line">C-&gt;&gt;D: Open arrow</span><br><span class="line">D--&gt;&gt;A: Dashed open arrow</span><br></pre></td></tr></table></figure>
-<h4 id="更多语法参考序列图语法参考">更多语法参考：<a
-href="http://bramp.github.io/js-sequence-diagrams/">序列图语法参考</a></h4>
-<h3 id="甘特图">9. 甘特图</h3>
-<p>甘特图内在思想简单。基本是一条线条图，横轴表示时间，纵轴表示活动（项目），线条表示在整个期间上计划和实际的活动完成情况。它直观地表明任务计划在什么时候进行，及实际进展与计划要求的对比。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title 项目开发流程</span><br><span class="line">section 项目确定</span><br><span class="line">    需求分析       :a1, 2016-06-22, 3d</span><br><span class="line">    可行性报告     :after a1, 5d</span><br><span class="line">    概念验证       : 5d</span><br><span class="line">section 项目实施</span><br><span class="line">    概要设计      :2016-07-05  , 5d</span><br><span class="line">    详细设计      :2016-07-08, 10d</span><br><span class="line">    编码          :2016-07-15, 10d</span><br><span class="line">    测试          :2016-07-22, 5d</span><br><span class="line">section 发布验收</span><br><span class="line">    发布: 2d</span><br><span class="line">    验收: 3d</span><br></pre></td></tr></table></figure>
-<h4 id="更多语法参考甘特图语法参考">更多语法参考：<a
-href="https://knsv.github.io/mermaid/#gant-diagrams">甘特图语法参考</a></h4>
-<h3 id="mermaid-流程图">10. Mermaid 流程图</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A[Hard edge] --&gt;|Link text| B(Round edge)</span><br><span class="line">B --&gt; C&#123;Decision&#125;</span><br><span class="line">C --&gt;|One| D[Result one]</span><br><span class="line">C --&gt;|Two| E[Result two]</span><br></pre></td></tr></table></figure>
-<h4 id="更多语法参考mermaid-流程图语法参考">更多语法参考：<a
-href="https://knsv.github.io/mermaid/#flowcharts-basic-syntax">Mermaid
-流程图语法参考</a></h4>
-<h3 id="mermaid-序列图">11. Mermaid 序列图</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alice-&gt;John: Hello John, how are you?</span><br><span class="line">    loop every minute</span><br><span class="line">        John--&gt;Alice: Great!</span><br><span class="line">    end</span><br></pre></td></tr></table></figure>
-<h4 id="更多语法参考mermaid-序列图语法参考">更多语法参考：<a
-href="https://knsv.github.io/mermaid/#sequence-diagrams">Mermaid
-序列图语法参考</a></h4>
-<h3 id="表格支持">12. 表格支持</h3>
-<table>
-<thead>
-<tr class="header">
-<th>项目</th>
-<th style="text-align: right;">价格</th>
-<th style="text-align: center;">数量</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>计算机</td>
-<td style="text-align: right;">$1600</td>
-<td style="text-align: center;">5</td>
-</tr>
-<tr class="even">
-<td>手机</td>
-<td style="text-align: right;">$12</td>
-<td style="text-align: center;">12</td>
-</tr>
-<tr class="odd">
-<td>管线</td>
-<td style="text-align: right;">$1</td>
-<td style="text-align: center;">234</td>
-</tr>
-</tbody>
-</table>
-<h3 id="定义型列表">13. 定义型列表</h3>
-<dl>
-<dt>名词 1</dt>
-<dd>
-定义 1（左侧有一个可见的冒号和四个不可见的空格）
-</dd>
-<dt>代码块 2</dt>
-<dd>
-<p>这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）</p>
-<pre><code>代码块（左侧有八个不可见的空格）</code></pre>
-</dd>
-</dl>
-<h3 id="html-标签">14. Html 标签</h3>
-<p>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html
-写一个纵跨两行的表格：</p>
-<pre><code>&lt;table&gt;
-    &lt;tr&gt;
-        &lt;th rowspan=&quot;2&quot;&gt;值班人员&lt;/th&gt;
-        &lt;th&gt;星期一&lt;/th&gt;
-        &lt;th&gt;星期二&lt;/th&gt;
-        &lt;th&gt;星期三&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;李强&lt;/td&gt;
-        &lt;td&gt;张明&lt;/td&gt;
-        &lt;td&gt;王平&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;</code></pre>
-<table>
-<tr>
-<th rowspan="2">
-值班人员
-</th>
-<th>
-星期一
-</th>
-<th>
-星期二
-</th>
-<th>
-星期三
-</th>
-</tr>
-<tr>
-<td>
-李强
-</td>
-<td>
-张明
-</td>
-<td>
-王平
-</td>
-</tr>
-</table>
-<h3 id="内嵌图标">15. 内嵌图标</h3>
-<p>本站的图标系统对外开放，在文档中输入</p>
-<pre><code>&lt;i class=&quot;icon-weibo&quot;&gt;&lt;/i&gt;</code></pre>
-<p>即显示微博的图标： <i class="icon-weibo icon-2x"></i></p>
-<p>替换 上述 <code>i 标签</code> 内的 <code>icon-weibo</code>
-以显示不同的图标，例如：</p>
-<pre><code>&lt;i class=&quot;icon-renren&quot;&gt;&lt;/i&gt;</code></pre>
-<p>即显示人人的图标： <i class="icon-renren icon-2x"></i></p>
-<p>更多的图标和玩法可以参看 <a
-href="http://fortawesome.github.io/Font-Awesome/3.2.1/icons/">font-awesome</a>
-官方网站。</p>
-<h3 id="待办事宜-todo-列表">16. 待办事宜 Todo 列表</h3>
-<p>使用带有 [ ] 或 [x]
-（未完成或已完成）项的列表语法撰写一个待办事宜列表，并且支持子列表嵌套以及混用Markdown语法，例如：</p>
-<pre><code>- [ ] **Cmd Markdown 开发**
-    - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
-    - [ ] 支持以 PDF 格式导出文稿
-    - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)
-    - [x] 改进 LaTex 功能
-        - [x] 修复 LaTex 公式渲染问题
-        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)
-- [ ] **七月旅行准备**
-    - [ ] 准备邮轮上需要携带的物品
-    - [ ] 浏览日本免税店的物品
-    - [x] 购买蓝宝石公主号七月一日的船票</code></pre>
-<p>对应显示如下待办事宜 Todo 列表：</p>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" /><strong>Cmd Markdown
-开发</strong><ul class="task-list">
-<li><input type="checkbox" disabled="" />改进 Cmd
-渲染算法，使用局部渲染技术提高渲染效率</li>
-<li><input type="checkbox" disabled="" />支持以 PDF 格式导出文稿</li>
-<li><input type="checkbox" disabled="" checked="" />新增Todo列表功能 <a
-href="https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments">语法参考</a></li>
-<li><input type="checkbox" disabled="" checked="" />改进 LaTex 功能<ul
-class="task-list">
-<li><input type="checkbox" disabled="" checked="" />修复 LaTex
-公式渲染问题</li>
-<li><input type="checkbox" disabled="" checked="" />新增 LaTex
-公式编号功能 <a
-href="http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers">语法参考</a></li>
-</ul></li>
-</ul></li>
-<li><input type="checkbox"
-disabled="" /><strong>七月旅行准备</strong><ul class="task-list">
-<li><input type="checkbox" disabled="" />准备邮轮上需要携带的物品</li>
-<li><input type="checkbox" disabled="" />浏览日本免税店的物品</li>
-<li><input type="checkbox" disabled=""
-checked="" />购买蓝宝石公主号七月一日的船票</li>
-</ul></li>
-</ul>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>这是一个 <em>注脚</em> 的 <strong>文本</strong>。<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>这是一个 <em>注脚</em> 的 <strong>文本</strong>。<a
-href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>语法手册</category>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>作业部落</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++基础入门</title>
     <url>/2020/01/21/C++%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<h1 id="c基础入门">C++基础入门</h1>
+<p>标签： C++基础</p>
+<hr />
+<span id="more"></span>
 <h2 id="c初识">1 C++初识</h2>
 <h3 id="第一个c程序">1.1 第一个C++程序</h3>
 <p>编写一个C++程序总共分为4个步骤</p>
@@ -1923,12 +1639,173 @@ for都是开发中常用的循环语句，for循环结构比较清晰，比较�
       </tags>
   </entry>
   <entry>
+    <title>C++笔记</title>
+    <url>/2020/01/21/C++%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1
+id="数组长度数组的总占字节空间除以首元素所占字节空间">数组长度：数组的总占字节空间除以首元素所占字节空间。</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> len = <span class="keyword">sizeof</span>（arr） /  <span class="keyword">sizeof</span>（arr[<span class="number">0</span>]）;</span><br></pre></td></tr></table></figure>
+<p>N个元素和</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(i= <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	sum+=p[i];</span><br></pre></td></tr></table></figure>
+<h1
+id="使用指针可以使得函数返回多个值返回最大和最小">使用指针可以使得函数返回多个值，返回最大和最小</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(in a[],<span class="type">int</span> n,<span class="type">int</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> sum=<span class="number">0</span>,min,max;</span><br><span class="line">    min=max=a[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(min&gt;a[i]) min=a[i];</span><br><span class="line">        <span class="keyword">if</span>(max&lt;a[i]) max=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    *p=min;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用指着进行字符串的复制、逆向输出等</p>
+<h1 id="获取个位数十位数百位数">获取个位数、十位数、百位数“</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">num / <span class="number">1</span> % <span class="number">10</span> 	<span class="comment">//个位数</span></span><br><span class="line">num / <span class="number">10</span> % <span class="number">10</span>	<span class="comment">//十位数</span></span><br><span class="line">num / <span class="number">100</span> % <span class="number">10</span>	<span class="comment">//百位数</span></span><br><span class="line">    ...</span><br><span class="line">num /” 本身位数“ 	 <span class="comment">//本身</span></span><br></pre></td></tr></table></figure>
+<h1 id="数组元素逆置">数组元素逆置</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> arr[<span class="number">5</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span> &#125;;</span><br><span class="line">	<span class="type">int</span> temp = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> start = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> end = <span class="built_in">sizeof</span>(arr) / <span class="built_in">sizeof</span>(arr[<span class="number">0</span>]) - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">	cout &lt;&lt; arr[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (start &lt; end)</span><br><span class="line">	&#123;	</span><br><span class="line">		temp = arr[start];</span><br><span class="line">		arr[start] = arr[end];</span><br><span class="line">		arr[end] = temp;</span><br><span class="line">		end--;</span><br><span class="line">		start++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;arr[i]&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="冒泡排序">冒泡排序</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">	int arr[9] = &#123; 4,2,8,0,5,7,1,3,9 &#125;;</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; 9 - 1; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int j = 0; j &lt; 9 - 1 - i; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			if (arr[j] &gt; arr[j + 1])</span><br><span class="line">			&#123;</span><br><span class="line">				int temp = arr[j];</span><br><span class="line">				arr[j] = arr[j + 1];</span><br><span class="line">				arr[j + 1] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; 9; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; arr[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总共排序次数=元素个数-1</p>
+<p>比较次数=元素个数-当前轮数-1</p>
+<h1 id="new-返回的是开辟堆区的地址指针">new
+返回的是开辟堆区的地址（指针）。</h1>
+<p>释放堆区的数组</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> [] arr</span><br></pre></td></tr></table></figure>
+<p>函数的返回值不能作为函数重载的条件。</p>
+<p>引用作为重载的条件</p>
+<p>子类可以访问父类的保护成员，子类不可以访问父类的私有成员</p>
+<ul>
+<li>struct 默认权限为公共</li>
+<li>class 默认权限为私有</li>
+</ul>
+<p>将成员属性设置为私有属性，用类内公共成员函数去访问私有成员。</p>
+<p>在另一个类可以让另一个类作为本来类中的成员。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once <span class="comment">// 防止头文件重复包含</span></span></span><br></pre></td></tr></table></figure>
+<p>shift+tab 键 缩进</p>
+<p>把类的声明放在头文件中，类的实现放在源文件中。</p>
+<p>静态成员函数不能访问非静态成员变量。</p>
+<p>静态成员变量，类内声明，类外初始化。</p>
+<p>静态成员变量和静态成员函数有两种访问方式：①通过对象，②通过类名。</p>
+<p>静态成员不占对象的内存空间。</p>
+<p>每个空对象也应该有一个独一无二的内存空间，故内存大小为1.</p>
+<p>成员变量和成员函数分开存储。</p>
+<p>除了成员变量，其他都不占用对象内存</p>
+<p>this 指针指向被调用的成员函数所属的对象。</p>
+<p>this指针的用途：</p>
+<ul>
+<li>当形参和成员变量同名时，可用this指针来区分</li>
+<li>在类的非静态成员函数中返回对象本身，可使用return *this</li>
+</ul>
+<p>this指针，可以用于链式编程。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Person&amp; <span class="title">PersonAddPerson</span><span class="params">(Person p)</span> <span class="comment">//需要引用返回，不让就是调用拷贝函数。拷贝构造函数是复制对面属性成一个新的对象，既p&#x27;、</span></span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;age += p.age;</span><br><span class="line">		<span class="comment">//返回对象本身</span></span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Person <span class="title">p1</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;p1.age = &quot;</span> &lt;&lt; p1.age &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="function">Person <span class="title">p2</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">	p2.<span class="built_in">PersonAddPerson</span>(p1).<span class="built_in">PersonAddPerson</span>(p1).<span class="built_in">PersonAddPerson</span>(p1);</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;p2.age = &quot;</span> &lt;&lt; p2.age &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>堆区数据：程序员开辟，程序员清除。</p>
+<p>类名（） 匿名对象，执行完这一行就被释放。</p>
+<p>继承的好处：==可以减少重复的代码==</p>
+<p>class A : public B;</p>
+<p>A 类称为子类 或 派生类</p>
+<p>B 类称为父类 或 基类</p>
+<p>全部都被继承，只是私有成员被编译器隐藏，不可访问。</p>
+<h1
+id="利用开发人员提示工具查看对象模型">利用开发人员提示工具查看对象模型</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//跳转盘符 （F）:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//跳转文件路径 cd （具体路径）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//查看命名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//c1 /d1 reportSingleClassLayout</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>访问子类同名成员 直接访问即可</li>
+<li>访问父类同名成员 需要加作用域</li>
+</ul>
+<p>子类和父类中有重名成员函数时，子类的的成员函数会屏蔽父类中重名的成员函数，必须加作用域访问。</p>
+<p>多继承可能会引发父类中有同名成员出现，需要加作用域区分，故不太建议使用。</p>
+<h1 id="菱形继承的问题">菱形继承的问题：</h1>
+<p>①多继承，重名二义性。加作用域解决。</p>
+<p>②重复继承，数据重叠。利用虚继承。（在继承之前加virtual）</p>
+<h1 id="多态分为两类">多态分为两类</h1>
+<ul>
+<li>静态多态: 函数重载 和 运算符重载属于静态多态，复用函数名</li>
+<li>动态多态: 派生类和虚函数实现运行时多态</li>
+</ul>
+<p>静态多态和动态多态区别：</p>
+<ul>
+<li>静态多态的函数地址早绑定 - 编译阶段确定函数地址</li>
+<li>动态多态的函数地址晚绑定 - 运行阶段确定函数地址</li>
+</ul>
+<p>动态多态满足条件：</p>
+<p>1.有继承关系</p>
+<p>2.子类重写父类的虚函数</p>
+<p>动态多态使用</p>
+<p>父类的指针或者引用 执行子类对象</p>
+<p>当类中有了纯虚函数，这个类也称为==抽象类==</p>
+<h1 id="抽象类特点"><strong>抽象类特点</strong>：</h1>
+<ul>
+<li>无法实例化对象</li>
+<li>子类必须重写抽象类中的纯虚函数，否则也属于抽象类</li>
+</ul>
+<p>多态技术写代码，高内聚低耦合。</p>
+<p>多态使用时，如果子类中有属性开辟到堆区，那么父类指针在释放时无法调用到子类的析构代码</p>
+<h1
+id="解决方式将父类中的析构函数改为虚析构或者纯虚析构">解决方式：将父类中的析构函数改为<strong>虚析构</strong>或者<strong>纯虚析构</strong></h1>
+<p>虚析构和纯虚析构共性：</p>
+<ul>
+<li>可以解决父类指针释放子类对象</li>
+<li>都需要有具体的函数实现</li>
+</ul>
+<p>虚析构和纯虚析构区别：</p>
+<ul>
+<li>如果是纯虚析构，该类属于抽象类，无法实例化对象</li>
+</ul>
+<h1 id="写文件">写文件</h1>
+<p>1.包含头文件；</p>
+<p>2.创建流对象；</p>
+<p>3.指定打开方式</p>
+<table>
+<thead>
+<tr class="header">
+<th>打开方式</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ios::in</td>
+<td>为读文件而打开文件</td>
+</tr>
+<tr class="even">
+<td>ios::out</td>
+<td>为写文件而打开文件</td>
+</tr>
+<tr class="odd">
+<td>ios::ate</td>
+<td>初始位置：文件尾</td>
+</tr>
+<tr class="even">
+<td>ios::app</td>
+<td>追加方式写文件</td>
+</tr>
+<tr class="odd">
+<td>ios::trunc</td>
+<td>如果文件存在先删除，再创建</td>
+</tr>
+<tr class="even">
+<td>ios::binary</td>
+<td>二进制方式</td>
+</tr>
+</tbody>
+</table>
+<p>用二进制方式写文件 <code>ios::binary |  ios:: out</code></p>
+<p>读文件</p>
+<p>1.包含头文件</p>
+<p>2.创建流对象</p>
+<p>3.打开方式并且判断是否打开成功</p>
+<p>4.读数据</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>常见知识点</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++提高编程</title>
     <url>/2020/01/21/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="c提高编程">C++提高编程</h1>
 <ul>
 <li>本阶段主要针对C++==泛型编程==和==STL==技术做详细讲解，探讨C++更深层的使用</li>
 </ul>
+<p>标签： C++基础</p>
+<hr />
+<span id="more"></span>
 <h2 id="模板">1 模板</h2>
 <h3 id="模板的概念">1.1 模板的概念</h3>
 <p>模板就是建立<strong>通用的模具</strong>，大大<strong>提高复用性</strong></p>
@@ -3889,168 +3766,13 @@ numeric，这个算法很实用</p>
       </tags>
   </entry>
   <entry>
-    <title>C++笔记</title>
-    <url>/2020/01/21/C++%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1
-id="数组长度数组的总占字节空间除以首元素所占字节空间">数组长度：数组的总占字节空间除以首元素所占字节空间。</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> len = <span class="keyword">sizeof</span>（arr） /  <span class="keyword">sizeof</span>（arr[<span class="number">0</span>]）;</span><br></pre></td></tr></table></figure>
-<p>N个元素和</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(i= <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	sum+=p[i];</span><br></pre></td></tr></table></figure>
-<h1
-id="使用指针可以使得函数返回多个值返回最大和最小">使用指针可以使得函数返回多个值，返回最大和最小</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(in a[],<span class="type">int</span> n,<span class="type">int</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> sum=<span class="number">0</span>,min,max;</span><br><span class="line">    min=max=a[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(min&gt;a[i]) min=a[i];</span><br><span class="line">        <span class="keyword">if</span>(max&lt;a[i]) max=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    *p=min;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>使用指着进行字符串的复制、逆向输出等</p>
-<h1 id="获取个位数十位数百位数">获取个位数、十位数、百位数“</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">num / <span class="number">1</span> % <span class="number">10</span> 	<span class="comment">//个位数</span></span><br><span class="line">num / <span class="number">10</span> % <span class="number">10</span>	<span class="comment">//十位数</span></span><br><span class="line">num / <span class="number">100</span> % <span class="number">10</span>	<span class="comment">//百位数</span></span><br><span class="line">    ...</span><br><span class="line">num /” 本身位数“ 	 <span class="comment">//本身</span></span><br></pre></td></tr></table></figure>
-<h1 id="数组元素逆置">数组元素逆置</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> arr[<span class="number">5</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span> &#125;;</span><br><span class="line">	<span class="type">int</span> temp = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> start = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> end = <span class="built_in">sizeof</span>(arr) / <span class="built_in">sizeof</span>(arr[<span class="number">0</span>]) - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">	cout &lt;&lt; arr[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (start &lt; end)</span><br><span class="line">	&#123;	</span><br><span class="line">		temp = arr[start];</span><br><span class="line">		arr[start] = arr[end];</span><br><span class="line">		arr[end] = temp;</span><br><span class="line">		end--;</span><br><span class="line">		start++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;arr[i]&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="冒泡排序">冒泡排序</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">	int arr[9] = &#123; 4,2,8,0,5,7,1,3,9 &#125;;</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; 9 - 1; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int j = 0; j &lt; 9 - 1 - i; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			if (arr[j] &gt; arr[j + 1])</span><br><span class="line">			&#123;</span><br><span class="line">				int temp = arr[j];</span><br><span class="line">				arr[j] = arr[j + 1];</span><br><span class="line">				arr[j + 1] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; 9; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; arr[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>总共排序次数=元素个数-1</p>
-<p>比较次数=元素个数-当前轮数-1</p>
-<h1 id="new-返回的是开辟堆区的地址指针">new
-返回的是开辟堆区的地址（指针）。</h1>
-<p>释放堆区的数组</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> [] arr</span><br></pre></td></tr></table></figure>
-<p>函数的返回值不能作为函数重载的条件。</p>
-<p>引用作为重载的条件</p>
-<p>子类可以访问父类的保护成员，子类不可以访问父类的私有成员</p>
-<ul>
-<li>struct 默认权限为公共</li>
-<li>class 默认权限为私有</li>
-</ul>
-<p>将成员属性设置为私有属性，用类内公共成员函数去访问私有成员。</p>
-<p>在另一个类可以让另一个类作为本来类中的成员。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once <span class="comment">// 防止头文件重复包含</span></span></span><br></pre></td></tr></table></figure>
-<p>shift+tab 键 缩进</p>
-<p>把类的声明放在头文件中，类的实现放在源文件中。</p>
-<p>静态成员函数不能访问非静态成员变量。</p>
-<p>静态成员变量，类内声明，类外初始化。</p>
-<p>静态成员变量和静态成员函数有两种访问方式：①通过对象，②通过类名。</p>
-<p>静态成员不占对象的内存空间。</p>
-<p>每个空对象也应该有一个独一无二的内存空间，故内存大小为1.</p>
-<p>成员变量和成员函数分开存储。</p>
-<p>除了成员变量，其他都不占用对象内存</p>
-<p>this 指针指向被调用的成员函数所属的对象。</p>
-<p>this指针的用途：</p>
-<ul>
-<li>当形参和成员变量同名时，可用this指针来区分</li>
-<li>在类的非静态成员函数中返回对象本身，可使用return *this</li>
-</ul>
-<p>this指针，可以用于链式编程。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">Person&amp; <span class="title">PersonAddPerson</span><span class="params">(Person p)</span> <span class="comment">//需要引用返回，不让就是调用拷贝函数。拷贝构造函数是复制对面属性成一个新的对象，既p&#x27;、</span></span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;age += p.age;</span><br><span class="line">		<span class="comment">//返回对象本身</span></span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Person <span class="title">p1</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;p1.age = &quot;</span> &lt;&lt; p1.age &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="function">Person <span class="title">p2</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">	p2.<span class="built_in">PersonAddPerson</span>(p1).<span class="built_in">PersonAddPerson</span>(p1).<span class="built_in">PersonAddPerson</span>(p1);</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;p2.age = &quot;</span> &lt;&lt; p2.age &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>堆区数据：程序员开辟，程序员清除。</p>
-<p>类名（） 匿名对象，执行完这一行就被释放。</p>
-<p>继承的好处：==可以减少重复的代码==</p>
-<p>class A : public B;</p>
-<p>A 类称为子类 或 派生类</p>
-<p>B 类称为父类 或 基类</p>
-<p>全部都被继承，只是私有成员被编译器隐藏，不可访问。</p>
-<h1
-id="利用开发人员提示工具查看对象模型">利用开发人员提示工具查看对象模型</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//跳转盘符 （F）:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//跳转文件路径 cd （具体路径）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//查看命名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//c1 /d1 reportSingleClassLayout</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>访问子类同名成员 直接访问即可</li>
-<li>访问父类同名成员 需要加作用域</li>
-</ul>
-<p>子类和父类中有重名成员函数时，子类的的成员函数会屏蔽父类中重名的成员函数，必须加作用域访问。</p>
-<p>多继承可能会引发父类中有同名成员出现，需要加作用域区分，故不太建议使用。</p>
-<h1 id="菱形继承的问题">菱形继承的问题：</h1>
-<p>①多继承，重名二义性。加作用域解决。</p>
-<p>②重复继承，数据重叠。利用虚继承。（在继承之前加virtual）</p>
-<h1 id="多态分为两类">多态分为两类</h1>
-<ul>
-<li>静态多态: 函数重载 和 运算符重载属于静态多态，复用函数名</li>
-<li>动态多态: 派生类和虚函数实现运行时多态</li>
-</ul>
-<p>静态多态和动态多态区别：</p>
-<ul>
-<li>静态多态的函数地址早绑定 - 编译阶段确定函数地址</li>
-<li>动态多态的函数地址晚绑定 - 运行阶段确定函数地址</li>
-</ul>
-<p>动态多态满足条件：</p>
-<p>1.有继承关系</p>
-<p>2.子类重写父类的虚函数</p>
-<p>动态多态使用</p>
-<p>父类的指针或者引用 执行子类对象</p>
-<p>当类中有了纯虚函数，这个类也称为==抽象类==</p>
-<h1 id="抽象类特点"><strong>抽象类特点</strong>：</h1>
-<ul>
-<li>无法实例化对象</li>
-<li>子类必须重写抽象类中的纯虚函数，否则也属于抽象类</li>
-</ul>
-<p>多态技术写代码，高内聚低耦合。</p>
-<p>多态使用时，如果子类中有属性开辟到堆区，那么父类指针在释放时无法调用到子类的析构代码</p>
-<h1
-id="解决方式将父类中的析构函数改为虚析构或者纯虚析构">解决方式：将父类中的析构函数改为<strong>虚析构</strong>或者<strong>纯虚析构</strong></h1>
-<p>虚析构和纯虚析构共性：</p>
-<ul>
-<li>可以解决父类指针释放子类对象</li>
-<li>都需要有具体的函数实现</li>
-</ul>
-<p>虚析构和纯虚析构区别：</p>
-<ul>
-<li>如果是纯虚析构，该类属于抽象类，无法实例化对象</li>
-</ul>
-<h1 id="写文件">写文件</h1>
-<p>1.包含头文件；</p>
-<p>2.创建流对象；</p>
-<p>3.指定打开方式</p>
-<table>
-<thead>
-<tr class="header">
-<th>打开方式</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>ios::in</td>
-<td>为读文件而打开文件</td>
-</tr>
-<tr class="even">
-<td>ios::out</td>
-<td>为写文件而打开文件</td>
-</tr>
-<tr class="odd">
-<td>ios::ate</td>
-<td>初始位置：文件尾</td>
-</tr>
-<tr class="even">
-<td>ios::app</td>
-<td>追加方式写文件</td>
-</tr>
-<tr class="odd">
-<td>ios::trunc</td>
-<td>如果文件存在先删除，再创建</td>
-</tr>
-<tr class="even">
-<td>ios::binary</td>
-<td>二进制方式</td>
-</tr>
-</tbody>
-</table>
-<p>用二进制方式写文件 <code>ios::binary |  ios:: out</code></p>
-<p>读文件</p>
-<p>1.包含头文件</p>
-<p>2.创建流对象</p>
-<p>3.打开方式并且判断是否打开成功</p>
-<p>4.读数据</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>常见知识点</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++核心编程</title>
     <url>/2020/01/22/C++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="c核心编程">C++核心编程</h1>
 <p>本阶段主要针对C++==面向对象==编程技术做详细讲解，探讨C++中的核心和精髓。</p>
+<p>标签： C++基础</p>
+<hr />
+<span id="more"></span>
 <h2 id="内存分区模型">1 内存分区模型</h2>
 <p>C++程序在执行时，将内存大方向划分为<strong>4个区域</strong></p>
 <ul>
@@ -4815,6 +4537,285 @@ CPU（用于计算），显卡（用于显示），内存条（用于存储）</
         <tag>C++</tag>
         <tag>C基础</tag>
         <tag>黑马程序员</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown</title>
+    <url>/2021/09/26/markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="cmd-markdown-简明语法手册">Cmd Markdown 简明语法手册</h1>
+<p>标签： Cmd-Markdown</p>
+<hr />
+<span id="more"></span>
+<h3 id="斜体和粗体">1. 斜体和粗体</h3>
+<p>使用 * 和 ** 表示斜体和粗体。</p>
+<p>示例：</p>
+<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
+<h3 id="分级标题">2. 分级标题</h3>
+<p>使用 === 表示一级标题，使用 --- 表示二级标题。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这是一个一级标题</span><br><span class="line">============================</span><br><span class="line"></span><br><span class="line">这是一个二级标题</span><br><span class="line">--------------------------------------------------</span><br><span class="line"></span><br><span class="line">### 这是一个三级标题</span><br></pre></td></tr></table></figure>
+<p>你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：# H1, ##
+H2, ### H3，#### H4。</p>
+<h3 id="外链接">3. 外链接</h3>
+<p>使用 [描述](链接地址) 为文字增加外链接。</p>
+<p>示例：</p>
+<p>这是去往 <a href="http://ghosertblog.github.com">本人博客</a>
+的链接。</p>
+<h3 id="无序列表">4. 无序列表</h3>
+<p>使用 *，+，- 表示无序列表。</p>
+<p>示例：</p>
+<ul>
+<li>无序列表项 一</li>
+<li>无序列表项 二</li>
+<li>无序列表项 三</li>
+</ul>
+<h3 id="有序列表">5. 有序列表</h3>
+<p>使用数字和点表示有序列表。</p>
+<p>示例：</p>
+<ol type="1">
+<li>有序列表项 一</li>
+<li>有序列表项 二</li>
+<li>有序列表项 三</li>
+</ol>
+<h3 id="文字引用">6. 文字引用</h3>
+<p>使用 &gt; 表示文字引用。</p>
+<p>示例：</p>
+<blockquote>
+<p>野火烧不尽，春风吹又生。</p>
+</blockquote>
+<h3 id="行内代码块">7. 行内代码块</h3>
+<p>使用 `代码` 表示行内代码块。</p>
+<p>示例：</p>
+<p>让我们聊聊 <code>html</code>。</p>
+<h3 id="代码块">8. 代码块</h3>
+<p>使用 四个缩进空格 表示代码块。</p>
+<p>示例：</p>
+<pre><code>这是一个代码块，此行左侧有四个不可见的空格。</code></pre>
+<h3 id="插入图像">9. 插入图像</h3>
+<p>使用 ![描述](图片链接地址) 插入图像。</p>
+<p>示例：</p>
+<figure>
+<img src="https://www.zybuluo.com/static/img/my_head.jpg"
+alt="我的头像" />
+<figcaption aria-hidden="true">我的头像</figcaption>
+</figure>
+<h1 id="cmd-markdown-高阶语法手册">Cmd Markdown 高阶语法手册</h1>
+<h3 id="内容目录">1. 内容目录</h3>
+<p>在段落中填写 <code>[TOC]</code> 以显示全文内容的目录结构。</p>
+<p>[TOC]</p>
+<h3 id="标签分类">2. 标签分类</h3>
+<p>在编辑区任意行的列首位置输入以下代码给文稿标签：</p>
+<p>标签： 数学 英语 Markdown</p>
+<p>或者</p>
+<p>Tags： 数学 英语 Markdown</p>
+<h3 id="删除线">3. 删除线</h3>
+<p>使用 ~~ 表示删除线。</p>
+<p><del>这是一段错误的文本。</del></p>
+<h3 id="注脚">4. 注脚</h3>
+<p>使用 [^keyword] 表示注脚。</p>
+<p>这是一个注脚<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>的样例。</p>
+<p>这是第二个注脚<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>的样例。</p>
+<h3 id="latex-公式">5. LaTeX 公式</h3>
+<p>$ 表示行内公式：</p>
+<p>质能守恒方程可以用一个很简洁的方程式 <span
+class="math inline">\(E=mc^2\)</span> 来表达。</p>
+<p>$$ 表示整行公式：</p>
+<p><span class="math display">\[\sum_{i=1}^n a_i=0\]</span></p>
+<p><span class="math display">\[f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 +
+\cdots + x_n^2 \]</span></p>
+<p><span class="math display">\[\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj}
+z_k}\]</span></p>
+<p>访问 <a
+href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax</a>
+参考更多使用方法。</p>
+<h3 id="加强的代码块">6. 加强的代码块</h3>
+<p>支持四十一种编程语言的语法高亮的显示，行号显示。</p>
+<p>非代码示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install vim-gnome</span><br></pre></td></tr></table></figure>
+<p>Python 示例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">somefunc</span>(<span class="params">param1=<span class="string">&#x27;&#x27;</span>, param2=<span class="number">0</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;A docstring&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;Greater&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SomeClass</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">&#x27;&#x27;&#x27;interpreter</span></span><br><span class="line"><span class="string"><span class="meta">... </span>prompt&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>JavaScript 示例：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* nth element in the fibonacci series.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> n &gt;= 0</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> the nth element, &gt;= 0.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fib</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> tmp;</span><br><span class="line">  <span class="keyword">while</span> (--n &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    tmp = a;</span><br><span class="line">    a += b;</span><br><span class="line">    b = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="title function_">fib</span>(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="流程图">7. 流程图</h3>
+<h4 id="示例">示例</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">st=&gt;start: Start:&gt;https://www.zybuluo.com</span><br><span class="line">io=&gt;inputoutput: verification</span><br><span class="line">op=&gt;operation: Your Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">sub=&gt;subroutine: Your Subroutine</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;io-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;sub-&gt;io</span><br></pre></td></tr></table></figure>
+<h4 id="更多语法参考流程图语法参考">更多语法参考：<a
+href="http://adrai.github.io/flowchart.js/">流程图语法参考</a></h4>
+<h3 id="序列图">8. 序列图</h3>
+<h4 id="示例-1">示例 1</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
+<h4 id="示例-2">示例 2</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Title: Here is a title</span><br><span class="line">A-&gt;B: Normal line</span><br><span class="line">B--&gt;C: Dashed line</span><br><span class="line">C-&gt;&gt;D: Open arrow</span><br><span class="line">D--&gt;&gt;A: Dashed open arrow</span><br></pre></td></tr></table></figure>
+<h4 id="更多语法参考序列图语法参考">更多语法参考：<a
+href="http://bramp.github.io/js-sequence-diagrams/">序列图语法参考</a></h4>
+<h3 id="甘特图">9. 甘特图</h3>
+<p>甘特图内在思想简单。基本是一条线条图，横轴表示时间，纵轴表示活动（项目），线条表示在整个期间上计划和实际的活动完成情况。它直观地表明任务计划在什么时候进行，及实际进展与计划要求的对比。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title 项目开发流程</span><br><span class="line">section 项目确定</span><br><span class="line">    需求分析       :a1, 2016-06-22, 3d</span><br><span class="line">    可行性报告     :after a1, 5d</span><br><span class="line">    概念验证       : 5d</span><br><span class="line">section 项目实施</span><br><span class="line">    概要设计      :2016-07-05  , 5d</span><br><span class="line">    详细设计      :2016-07-08, 10d</span><br><span class="line">    编码          :2016-07-15, 10d</span><br><span class="line">    测试          :2016-07-22, 5d</span><br><span class="line">section 发布验收</span><br><span class="line">    发布: 2d</span><br><span class="line">    验收: 3d</span><br></pre></td></tr></table></figure>
+<h4 id="更多语法参考甘特图语法参考">更多语法参考：<a
+href="https://knsv.github.io/mermaid/#gant-diagrams">甘特图语法参考</a></h4>
+<h3 id="mermaid-流程图">10. Mermaid 流程图</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A[Hard edge] --&gt;|Link text| B(Round edge)</span><br><span class="line">B --&gt; C&#123;Decision&#125;</span><br><span class="line">C --&gt;|One| D[Result one]</span><br><span class="line">C --&gt;|Two| E[Result two]</span><br></pre></td></tr></table></figure>
+<h4 id="更多语法参考mermaid-流程图语法参考">更多语法参考：<a
+href="https://knsv.github.io/mermaid/#flowcharts-basic-syntax">Mermaid
+流程图语法参考</a></h4>
+<h3 id="mermaid-序列图">11. Mermaid 序列图</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alice-&gt;John: Hello John, how are you?</span><br><span class="line">    loop every minute</span><br><span class="line">        John--&gt;Alice: Great!</span><br><span class="line">    end</span><br></pre></td></tr></table></figure>
+<h4 id="更多语法参考mermaid-序列图语法参考">更多语法参考：<a
+href="https://knsv.github.io/mermaid/#sequence-diagrams">Mermaid
+序列图语法参考</a></h4>
+<h3 id="表格支持">12. 表格支持</h3>
+<table>
+<thead>
+<tr class="header">
+<th>项目</th>
+<th style="text-align: right;">价格</th>
+<th style="text-align: center;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>计算机</td>
+<td style="text-align: right;">$1600</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td>手机</td>
+<td style="text-align: right;">$12</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="odd">
+<td>管线</td>
+<td style="text-align: right;">$1</td>
+<td style="text-align: center;">234</td>
+</tr>
+</tbody>
+</table>
+<h3 id="定义型列表">13. 定义型列表</h3>
+<dl>
+<dt>名词 1</dt>
+<dd>
+定义 1（左侧有一个可见的冒号和四个不可见的空格）
+</dd>
+<dt>代码块 2</dt>
+<dd>
+<p>这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）</p>
+<pre><code>代码块（左侧有八个不可见的空格）</code></pre>
+</dd>
+</dl>
+<h3 id="html-标签">14. Html 标签</h3>
+<p>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html
+写一个纵跨两行的表格：</p>
+<pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th rowspan=&quot;2&quot;&gt;值班人员&lt;/th&gt;
+        &lt;th&gt;星期一&lt;/th&gt;
+        &lt;th&gt;星期二&lt;/th&gt;
+        &lt;th&gt;星期三&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;李强&lt;/td&gt;
+        &lt;td&gt;张明&lt;/td&gt;
+        &lt;td&gt;王平&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+<table>
+<tr>
+<th rowspan="2">
+值班人员
+</th>
+<th>
+星期一
+</th>
+<th>
+星期二
+</th>
+<th>
+星期三
+</th>
+</tr>
+<tr>
+<td>
+李强
+</td>
+<td>
+张明
+</td>
+<td>
+王平
+</td>
+</tr>
+</table>
+<h3 id="内嵌图标">15. 内嵌图标</h3>
+<p>本站的图标系统对外开放，在文档中输入</p>
+<pre><code>&lt;i class=&quot;icon-weibo&quot;&gt;&lt;/i&gt;</code></pre>
+<p>即显示微博的图标： <i class="icon-weibo icon-2x"></i></p>
+<p>替换 上述 <code>i 标签</code> 内的 <code>icon-weibo</code>
+以显示不同的图标，例如：</p>
+<pre><code>&lt;i class=&quot;icon-renren&quot;&gt;&lt;/i&gt;</code></pre>
+<p>即显示人人的图标： <i class="icon-renren icon-2x"></i></p>
+<p>更多的图标和玩法可以参看 <a
+href="http://fortawesome.github.io/Font-Awesome/3.2.1/icons/">font-awesome</a>
+官方网站。</p>
+<h3 id="待办事宜-todo-列表">16. 待办事宜 Todo 列表</h3>
+<p>使用带有 [ ] 或 [x]
+（未完成或已完成）项的列表语法撰写一个待办事宜列表，并且支持子列表嵌套以及混用Markdown语法，例如：</p>
+<pre><code>- [ ] **Cmd Markdown 开发**
+    - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
+    - [ ] 支持以 PDF 格式导出文稿
+    - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)
+    - [x] 改进 LaTex 功能
+        - [x] 修复 LaTex 公式渲染问题
+        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)
+- [ ] **七月旅行准备**
+    - [ ] 准备邮轮上需要携带的物品
+    - [ ] 浏览日本免税店的物品
+    - [x] 购买蓝宝石公主号七月一日的船票</code></pre>
+<p>对应显示如下待办事宜 Todo 列表：</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" /><strong>Cmd Markdown
+开发</strong><ul class="task-list">
+<li><input type="checkbox" disabled="" />改进 Cmd
+渲染算法，使用局部渲染技术提高渲染效率</li>
+<li><input type="checkbox" disabled="" />支持以 PDF 格式导出文稿</li>
+<li><input type="checkbox" disabled="" checked="" />新增Todo列表功能 <a
+href="https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments">语法参考</a></li>
+<li><input type="checkbox" disabled="" checked="" />改进 LaTex 功能<ul
+class="task-list">
+<li><input type="checkbox" disabled="" checked="" />修复 LaTex
+公式渲染问题</li>
+<li><input type="checkbox" disabled="" checked="" />新增 LaTex
+公式编号功能 <a
+href="http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers">语法参考</a></li>
+</ul></li>
+</ul></li>
+<li><input type="checkbox"
+disabled="" /><strong>七月旅行准备</strong><ul class="task-list">
+<li><input type="checkbox" disabled="" />准备邮轮上需要携带的物品</li>
+<li><input type="checkbox" disabled="" />浏览日本免税店的物品</li>
+<li><input type="checkbox" disabled=""
+checked="" />购买蓝宝石公主号七月一日的船票</li>
+</ul></li>
+</ul>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>这是一个 <em>注脚</em> 的 <strong>文本</strong>。<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>这是一个 <em>注脚</em> 的 <strong>文本</strong>。<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>语法手册</category>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>作业部落</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
 </search>
