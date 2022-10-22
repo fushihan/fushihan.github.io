@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+<link rel="preconnect" href="https://lib.baomitu.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="msvalidate.01" content="01F92C26CB10A6F80D921595AD6AC282">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://lib.baomitu.com/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fushihan.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":0,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="数组长度：数组的总占字节空间除以首元素所占字节空间。 1int len &#x3D; sizeof（arr） &#x2F;  sizeof（arr[0]）; N个元素和 12for(i&#x3D; 0;i&lt;n;i++)	sum+&#x3D;p[i]; 使用指针可以使得函数返回多个值，返回最大和最小 12345678910111213int f(in a[],int n,int *p)&amp;#123;   int sum&#x3D;0,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++笔记">
+<meta property="og:url" content="https://fushihan.github.io/2020/01/21/C++%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="随想记">
+<meta property="og:description" content="数组长度：数组的总占字节空间除以首元素所占字节空间。 1int len &#x3D; sizeof（arr） &#x2F;  sizeof（arr[0]）; N个元素和 12for(i&#x3D; 0;i&lt;n;i++)	sum+&#x3D;p[i]; 使用指针可以使得函数返回多个值，返回最大和最小 12345678910111213int f(in a[],int n,int *p)&amp;#123;   int sum&#x3D;0,">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-21T14:20:24.000Z">
+<meta property="article:modified_time" content="2022-10-22T11:08:53.463Z">
+<meta property="article:author" content="郑楷宇">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="常见知识点">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://fushihan.github.io/2020/01/21/C++%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fushihan.github.io/2020/01/21/C++%E7%AC%94%E8%AE%B0/","path":"2020/01/21/C++笔记/","title":"C++笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C++笔记 | 随想记</title>
+  
+
+
+
+
+
+<link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随想记" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随想记</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">小傅小傅食不果腹</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%95%B0%E7%BB%84%E7%9A%84%E6%80%BB%E5%8D%A0%E5%AD%97%E8%8A%82%E7%A9%BA%E9%97%B4%E9%99%A4%E4%BB%A5%E9%A6%96%E5%85%83%E7%B4%A0%E6%89%80%E5%8D%A0%E5%AD%97%E8%8A%82%E7%A9%BA%E9%97%B4"><span class="nav-number">1.</span> <span class="nav-text">数组长度：数组的总占字节空间除以首元素所占字节空间。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88%E5%8F%AF%E4%BB%A5%E4%BD%BF%E5%BE%97%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%A4%9A%E4%B8%AA%E5%80%BC%E8%BF%94%E5%9B%9E%E6%9C%80%E5%A4%A7%E5%92%8C%E6%9C%80%E5%B0%8F"><span class="nav-number">2.</span> <span class="nav-text">使用指针可以使得函数返回多个值，返回最大和最小</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%AA%E4%BD%8D%E6%95%B0%E5%8D%81%E4%BD%8D%E6%95%B0%E7%99%BE%E4%BD%8D%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">获取个位数、十位数、百位数“</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E9%80%86%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">数组元素逆置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">5.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AF%E5%BC%80%E8%BE%9F%E5%A0%86%E5%8C%BA%E7%9A%84%E5%9C%B0%E5%9D%80%E6%8C%87%E9%92%88"><span class="nav-number">6.</span> <span class="nav-text">new
+返回的是开辟堆区的地址（指针）。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8F%90%E7%A4%BA%E5%B7%A5%E5%85%B7%E6%9F%A5%E7%9C%8B%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">7.</span> <span class="nav-text">利用开发人员提示工具查看对象模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">菱形继承的问题：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E6%80%81%E5%88%86%E4%B8%BA%E4%B8%A4%E7%B1%BB"><span class="nav-number">9.</span> <span class="nav-text">多态分为两类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%89%B9%E7%82%B9"><span class="nav-number">10.</span> <span class="nav-text">抽象类特点：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F%E5%B0%86%E7%88%B6%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E6%94%B9%E4%B8%BA%E8%99%9A%E6%9E%90%E6%9E%84%E6%88%96%E8%80%85%E7%BA%AF%E8%99%9A%E6%9E%90%E6%9E%84"><span class="nav-number">11.</span> <span class="nav-text">解决方式：将父类中的析构函数改为虚析构或者纯虚析构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E6%96%87%E4%BB%B6"><span class="nav-number">12.</span> <span class="nav-text">写文件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="郑楷宇"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">郑楷宇</p>
+  <div class="site-description" itemprop="description">既然青春留不住</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fushihan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fushihan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/50488351" title="BiliBili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;50488351" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>BiliBili</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-sharp fa-solid fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://jmyblog.top/" title="https:&#x2F;&#x2F;jmyblog.top&#x2F;" rel="noopener" target="_blank">谁把钱丢了</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fushihan.github.io/2020/01/21/C++%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="郑楷宇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随想记">
+      <meta itemprop="description" content="既然青春留不住">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C++笔记 | 随想记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-21 22:20:24" itemprop="dateCreated datePublished" datetime="2020-01-21T22:20:24+08:00">2020-01-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-22 19:08:53" itemprop="dateModified" datetime="2022-10-22T19:08:53+08:00">2022-10-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1
+id="数组长度数组的总占字节空间除以首元素所占字节空间">数组长度：数组的总占字节空间除以首元素所占字节空间。</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> len = <span class="keyword">sizeof</span>（arr） /  <span class="keyword">sizeof</span>（arr[<span class="number">0</span>]）;</span><br></pre></td></tr></table></figure>
+<p>N个元素和</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i= <span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	sum+=p[i];</span><br></pre></td></tr></table></figure>
+<h1
+id="使用指针可以使得函数返回多个值返回最大和最小">使用指针可以使得函数返回多个值，返回最大和最小</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(in a[],<span class="type">int</span> n,<span class="type">int</span> *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> sum=<span class="number">0</span>,min,max;</span><br><span class="line">    min=max=a[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(min&gt;a[i]) min=a[i];</span><br><span class="line">        <span class="keyword">if</span>(max&lt;a[i]) max=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    *p=min;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用指着进行字符串的复制、逆向输出等</p>
+<h1 id="获取个位数十位数百位数">获取个位数、十位数、百位数“</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num / <span class="number">1</span> % <span class="number">10</span> 	<span class="comment">//个位数</span></span><br><span class="line">num / <span class="number">10</span> % <span class="number">10</span>	<span class="comment">//十位数</span></span><br><span class="line">num / <span class="number">100</span> % <span class="number">10</span>	<span class="comment">//百位数</span></span><br><span class="line">    ...</span><br><span class="line">num /” 本身位数“ 	 <span class="comment">//本身</span></span><br></pre></td></tr></table></figure>
+<h1 id="数组元素逆置">数组元素逆置</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> arr[<span class="number">5</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span> &#125;;</span><br><span class="line">	<span class="type">int</span> temp = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> start = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> end = <span class="built_in">sizeof</span>(arr) / <span class="built_in">sizeof</span>(arr[<span class="number">0</span>]) - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">	cout &lt;&lt; arr[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (start &lt; end)</span><br><span class="line">	&#123;	</span><br><span class="line">		temp = arr[start];</span><br><span class="line">		arr[start] = arr[end];</span><br><span class="line">		arr[end] = temp;</span><br><span class="line">		end--;</span><br><span class="line">		start++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;arr[i]&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="冒泡排序">冒泡排序</h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">	int arr[9] = &#123; 4,2,8,0,5,7,1,3,9 &#125;;</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; 9 - 1; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int j = 0; j &lt; 9 - 1 - i; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			if (arr[j] &gt; arr[j + 1])</span><br><span class="line">			&#123;</span><br><span class="line">				int temp = arr[j];</span><br><span class="line">				arr[j] = arr[j + 1];</span><br><span class="line">				arr[j + 1] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for (int i = 0; i &lt; 9; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; arr[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总共排序次数=元素个数-1</p>
+<p>比较次数=元素个数-当前轮数-1</p>
+<h1 id="new-返回的是开辟堆区的地址指针">new
+返回的是开辟堆区的地址（指针）。</h1>
+<p>释放堆区的数组</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> [] arr</span><br></pre></td></tr></table></figure>
+<p>函数的返回值不能作为函数重载的条件。</p>
+<p>引用作为重载的条件</p>
+<p>子类可以访问父类的保护成员，子类不可以访问父类的私有成员</p>
+<ul>
+<li>struct 默认权限为公共</li>
+<li>class 默认权限为私有</li>
+</ul>
+<p>将成员属性设置为私有属性，用类内公共成员函数去访问私有成员。</p>
+<p>在另一个类可以让另一个类作为本来类中的成员。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once <span class="comment">// 防止头文件重复包含</span></span></span><br></pre></td></tr></table></figure>
+<p>shift+tab 键 缩进</p>
+<p>把类的声明放在头文件中，类的实现放在源文件中。</p>
+<p>静态成员函数不能访问非静态成员变量。</p>
+<p>静态成员变量，类内声明，类外初始化。</p>
+<p>静态成员变量和静态成员函数有两种访问方式：①通过对象，②通过类名。</p>
+<p>静态成员不占对象的内存空间。</p>
+<p>每个空对象也应该有一个独一无二的内存空间，故内存大小为1.</p>
+<p>成员变量和成员函数分开存储。</p>
+<p>除了成员变量，其他都不占用对象内存</p>
+<p>this 指针指向被调用的成员函数所属的对象。</p>
+<p>this指针的用途：</p>
+<ul>
+<li>当形参和成员变量同名时，可用this指针来区分</li>
+<li>在类的非静态成员函数中返回对象本身，可使用return *this</li>
+</ul>
+<p>this指针，可以用于链式编程。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Person&amp; <span class="title">PersonAddPerson</span><span class="params">(Person p)</span> <span class="comment">//需要引用返回，不让就是调用拷贝函数。拷贝构造函数是复制对面属性成一个新的对象，既p&#x27;、</span></span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;age += p.age;</span><br><span class="line">		<span class="comment">//返回对象本身</span></span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Person <span class="title">p1</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;p1.age = &quot;</span> &lt;&lt; p1.age &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="function">Person <span class="title">p2</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">	p2.<span class="built_in">PersonAddPerson</span>(p1).<span class="built_in">PersonAddPerson</span>(p1).<span class="built_in">PersonAddPerson</span>(p1);</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;p2.age = &quot;</span> &lt;&lt; p2.age &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>堆区数据：程序员开辟，程序员清除。</p>
+<p>类名（） 匿名对象，执行完这一行就被释放。</p>
+<p>继承的好处：==可以减少重复的代码==</p>
+<p>class A : public B;</p>
+<p>A 类称为子类 或 派生类</p>
+<p>B 类称为父类 或 基类</p>
+<p>全部都被继承，只是私有成员被编译器隐藏，不可访问。</p>
+<h1
+id="利用开发人员提示工具查看对象模型">利用开发人员提示工具查看对象模型</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//跳转盘符 （F）:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//跳转文件路径 cd （具体路径）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//查看命名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//c1 /d1 reportSingleClassLayout</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>访问子类同名成员 直接访问即可</li>
+<li>访问父类同名成员 需要加作用域</li>
+</ul>
+<p>子类和父类中有重名成员函数时，子类的的成员函数会屏蔽父类中重名的成员函数，必须加作用域访问。</p>
+<p>多继承可能会引发父类中有同名成员出现，需要加作用域区分，故不太建议使用。</p>
+<h1 id="菱形继承的问题">菱形继承的问题：</h1>
+<p>①多继承，重名二义性。加作用域解决。</p>
+<p>②重复继承，数据重叠。利用虚继承。（在继承之前加virtual）</p>
+<h1 id="多态分为两类">多态分为两类</h1>
+<ul>
+<li>静态多态: 函数重载 和 运算符重载属于静态多态，复用函数名</li>
+<li>动态多态: 派生类和虚函数实现运行时多态</li>
+</ul>
+<p>静态多态和动态多态区别：</p>
+<ul>
+<li>静态多态的函数地址早绑定 - 编译阶段确定函数地址</li>
+<li>动态多态的函数地址晚绑定 - 运行阶段确定函数地址</li>
+</ul>
+<p>动态多态满足条件：</p>
+<p>1.有继承关系</p>
+<p>2.子类重写父类的虚函数</p>
+<p>动态多态使用</p>
+<p>父类的指针或者引用 执行子类对象</p>
+<p>当类中有了纯虚函数，这个类也称为==抽象类==</p>
+<h1 id="抽象类特点"><strong>抽象类特点</strong>：</h1>
+<ul>
+<li>无法实例化对象</li>
+<li>子类必须重写抽象类中的纯虚函数，否则也属于抽象类</li>
+</ul>
+<p>多态技术写代码，高内聚低耦合。</p>
+<p>多态使用时，如果子类中有属性开辟到堆区，那么父类指针在释放时无法调用到子类的析构代码</p>
+<h1
+id="解决方式将父类中的析构函数改为虚析构或者纯虚析构">解决方式：将父类中的析构函数改为<strong>虚析构</strong>或者<strong>纯虚析构</strong></h1>
+<p>虚析构和纯虚析构共性：</p>
+<ul>
+<li>可以解决父类指针释放子类对象</li>
+<li>都需要有具体的函数实现</li>
+</ul>
+<p>虚析构和纯虚析构区别：</p>
+<ul>
+<li>如果是纯虚析构，该类属于抽象类，无法实例化对象</li>
+</ul>
+<h1 id="写文件">写文件</h1>
+<p>1.包含头文件；</p>
+<p>2.创建流对象；</p>
+<p>3.指定打开方式</p>
+<table>
+<thead>
+<tr class="header">
+<th>打开方式</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ios::in</td>
+<td>为读文件而打开文件</td>
+</tr>
+<tr class="even">
+<td>ios::out</td>
+<td>为写文件而打开文件</td>
+</tr>
+<tr class="odd">
+<td>ios::ate</td>
+<td>初始位置：文件尾</td>
+</tr>
+<tr class="even">
+<td>ios::app</td>
+<td>追加方式写文件</td>
+</tr>
+<tr class="odd">
+<td>ios::trunc</td>
+<td>如果文件存在先删除，再创建</td>
+</tr>
+<tr class="even">
+<td>ios::binary</td>
+<td>二进制方式</td>
+</tr>
+</tbody>
+</table>
+<p>用二进制方式写文件 <code>ios::binary |  ios:: out</code></p>
+<p>读文件</p>
+<p>1.包含头文件</p>
+<p>2.创建流对象</p>
+<p>3.打开方式并且判断是否打开成功</p>
+<p>4.读数据</p>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="share.title"
+      
+      
+        data-wechat-qrcode-helper="share.prompt"
+      
+    >
+    </div>
+  </div>
+  <script src="https://lib.baomitu.com/social-share.js/1.0.16/js/social-share.min.js"></script>
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="郑楷宇 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>郑楷宇
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://fushihan.github.io/2020/01/21/C++%E7%AC%94%E8%AE%B0/" title="C++笔记">https://fushihan.github.io/2020/01/21/C++笔记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN,en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag"><i class="fa fa-tag"></i> 常见知识点</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/01/21/C++%E6%8F%90%E9%AB%98%E7%BC%96%E7%A8%8B/" rel="next" title="C++提高编程">
+                  C++提高编程 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">你是知道郑楷宇是谁！ </a>
+      <img src="http://fushihan.github.io" alt="">
+  </div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郑楷宇</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://lib.baomitu.com/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://lib.baomitu.com/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://lib.baomitu.com/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://lib.baomitu.com/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
