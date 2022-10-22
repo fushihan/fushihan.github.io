@@ -1641,7 +1641,11 @@ for都是开发中常用的循环语句，for循环结构比较清晰，比较�
   <entry>
     <title>C++笔记</title>
     <url>/2020/01/21/C++%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1
+    <content><![CDATA[<h1 id="c笔记">C++笔记</h1>
+<p>标签： C++笔记</p>
+<hr />
+<span id="more"></span>
+<h1
 id="数组长度数组的总占字节空间除以首元素所占字节空间">数组长度：数组的总占字节空间除以首元素所占字节空间。</h1>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> len = <span class="keyword">sizeof</span>（arr） /  <span class="keyword">sizeof</span>（arr[<span class="number">0</span>]）;</span><br></pre></td></tr></table></figure>
 <p>N个元素和</p>
